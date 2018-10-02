@@ -1,3 +1,4 @@
+<?php include "includes/db.php";?>
 <?php include "includes/header.php";?>
 <!-- Navigation -->
   <?php include "includes/navigation.php";?>
@@ -19,7 +20,7 @@
                   <a href="#">Blog Post Title</a>
               </h2>
               <p class="lead">
-                  by <a href="index.php">Start Bootstrap</a>
+                  by <a href="index.php">DroBlog</a>
               </p>
               <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>
               <hr>
