@@ -10,7 +10,7 @@
   
   $connection = mysqli_connect(DB_HOST, DB_USER, DB_PW, DB_NAME);
   
-  if($connection) {
-    echo 'Connected to database: CMS';
-  }
+  // if($connection) {
+  //   echo 'Connected to database: CMS';
+  // }
 ?>
