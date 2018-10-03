@@ -1,19 +1,9 @@
-<div id="page-wrapper">
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
-    <div class="container-fluid">
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
-        <!-- Page Heading -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                    Welcome to the Admin
-                    <small>Subheading</small>
-                </h1>
-            </div>
-        </div>
-        <!-- /.row -->
+</body>
 
-    </div>
-    <!-- /.container-fluid -->
-
-</div>
+</html>

@@ -5,7 +5,7 @@
             <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
         </li>
         <li>
-            <a href="#"><i class="fa fa-fw fa-tags"></i> Categories</a>
+            <a href="categories.php"><i class="fa fa-fw fa-tags"></i> Categories</a>
         </li>
         <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#posts"><i class="fa fa-fw fa-pencil-square-o"></i> Posts <i class="fa fa-fw fa-caret-down"></i></a>
