@@ -117,12 +117,16 @@
                           }
                           
                           while($row = mysqli_fetch_assoc($fetchCat)) {
+                            $cat_id = $row['id'];
                             $cat_title = $row['title'];
                           }
                         ?>
                         <form class="" action="" method="post">
                           <div class="form-group">
-                            <label for="title">Update Category</label>
+                            <label for="title">
+                              Update Category ID:
+                              <?php if(isset($cat_id)) {echo $cat_id;}?>
+                            </label>
                             <input class="form-control"
                                    type="text"
                                    name="title"
