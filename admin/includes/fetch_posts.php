@@ -11,6 +11,7 @@
       <th>Tags</th>
       <th>Comment Count</th>
       <th>Status</th>
+      <th>Options</th>
     </tr>
   </thead>
   <tbody>
@@ -42,8 +43,19 @@
       echo "<td>{$post_tags}</td>";
       echo "<td>{$post_comments}</td>";
       echo "<td>{$post_status}</td>";
+      echo "<td><a href='posts.php?delete={$post_id}' class='btn btn-danger'>Delete</a></td>";
     echo "</tr>";
   }
   ?>
   </tbody>
 </table>
+
+<?php
+  if(isset($_GET['delete'])) {
+    $id = $_GET['delete'];
+    
+    $query = "DELETE FROM posts WHERE id = {$id}";
+    $delete_post = mysqli_query($connection, $query);
+    header("Location: posts.php");
+  }
+?>

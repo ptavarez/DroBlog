@@ -16,6 +16,7 @@
               VALUES({$post_cat_id}, '{$post_title}', '{$post_author}', now(), '{$post_image}', '{$post_content}', '{$post_tags}', '{$post_comment_count}', '{$post_status}')";
               
     $addPost = mysqli_query($connection, $query);
+    header("Location: posts.php");
     
     confirm($addPost);
   }
