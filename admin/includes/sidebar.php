@@ -11,7 +11,7 @@
             <a href="javascript:;" data-toggle="collapse" data-target="#posts"><i class="fa fa-fw fa-pencil-square-o"></i> Posts <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="posts" class="collapse">
                 <li>
-                    <a href="#">Add Post</a>
+                    <a href="posts.php?source=add_post">Add Post</a>
                 </li>
                 <li>
                     <a href="posts.php">View Posts</a>
