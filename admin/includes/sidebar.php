@@ -14,7 +14,7 @@
                     <a href="#">Add Post</a>
                 </li>
                 <li>
-                    <a href="#">View Posts</a>
+                    <a href="posts.php">View Posts</a>
                 </li>
             </ul>
         </li>
