@@ -43,7 +43,8 @@
                               <tr>
                                 <th>ID</th>
                                 <th>Title</th>
-                                <th>Options</th>
+                                <th>Update</th>
+                                <th>Delete</th>
                               </tr>
                             </thead>
                             <tbody>

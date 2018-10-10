@@ -39,10 +39,11 @@
       echo "<tr>";
         echo "<td>{$cat_id}</td>";
         echo "<td>{$cat_title}</td>";
-        echo "<td>
-                <a class='btn btn-warning' href='categories.php?update={$cat_id}'>Update</a>
-                | |
-                <a class='btn btn-danger' href='categories.php?delete={$cat_id}'>Delete</a>
+        echo "<td class='text-center'>
+                <a class='btn btn-warning' href='categories.php?update={$cat_id}'></a>
+              </td>";
+        echo  "<td class='text-center'>
+                <a class='btn btn-danger' href='categories.php?delete={$cat_id}'></a>
               </td>";
       echo "</tr>";
     }
