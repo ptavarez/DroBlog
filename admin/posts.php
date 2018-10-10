@@ -27,7 +27,9 @@
                             case 'add_post';
                               include "includes/add_post.php";
                             break;
-                            
+                            case 'update_post';
+                              include "includes/update_post.php";
+                            break;
                             default:
                             include "includes/fetch_posts.php";
                           }

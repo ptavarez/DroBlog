@@ -11,7 +11,8 @@
       <th>Tags</th>
       <th>Comment Count</th>
       <th>Status</th>
-      <th>Options</th>
+      <th>Update</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -43,7 +44,12 @@
       echo "<td>{$post_tags}</td>";
       echo "<td>{$post_comments}</td>";
       echo "<td>{$post_status}</td>";
-      echo "<td><a href='posts.php?delete={$post_id}' class='btn btn-danger'>Delete</a></td>";
+      echo "<td class='text-center'>
+              <a href='posts.php?source=update_post&p_id={$post_id}' class='btn btn-warning'></a>
+            </td>";
+      echo  "<td class='text-center'>
+              <a href='posts.php?delete={$post_id}' class='btn btn-danger'></a>
+            </td>";
     echo "</tr>";
   }
   ?>
