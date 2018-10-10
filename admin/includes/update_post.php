@@ -60,7 +60,7 @@
 
 <form class="" action="" method="post" enctype="multipart/form-data">
 <div class="form-group">
-  <label for="category_id">Category</label>
+  <label for="category_id">Category: </label>
   <select name="category_id">
     <?php
       $query = "SELECT * FROM categories";

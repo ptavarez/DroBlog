@@ -25,11 +25,22 @@
 
 <form class="" action="" method="post" enctype="multipart/form-data">
   <div class="form-group">
-    <label for="category_id">Category ID</label>
-    <input class="form-control"
-           type="number"
-           name="category_id"
-           value="">
+    <label for="category_id">Category: </label>
+    <select name="category_id">
+      <?php
+        $query2 = "SELECT * FROM categories";
+        $fetchCat = mysqli_query($connection, $query2);
+        
+        confirm($fetchCat);
+        
+        while($row = mysqli_fetch_assoc($fetchCat)) {
+          $cat_id = $row['id'];
+          $cat_title = $row['title'];
+          
+          echo "<option value='{$cat_id}'>{$cat_title}</option>";
+        }
+      ?>
+    </select>
   </div>
   <div class="form-group">
     <label for="title">Title</label>

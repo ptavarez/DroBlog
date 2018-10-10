@@ -2,7 +2,7 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Category ID</th>
+      <th>Category</th>
       <th>Title</th>
       <th>Author</th>
       <th>Date</th>
@@ -32,10 +32,18 @@
     $post_tags = $row['tags'];
     $post_comments = $row['comment_count'];
     $post_status = $row['status'];
+    
+    $query2 = "SELECT * FROM categories WHERE id = $post_cat_id";
+    $fetchCat = mysqli_query($connection, $query2);
+    
+    confirm($fetchCat);
 
     echo "<tr>";
       echo "<td>{$post_id}</td>";
-      echo "<td>{$post_cat_id}</td>";
+      while($row = mysqli_fetch_assoc($fetchCat)) {
+        $cat_title = $row['title'];
+        echo "<td>{$cat_title}</td>";
+      }
       echo "<td>{$post_title}</td>";
       echo "<td>{$post_author}</td>";
       echo "<td>{$post_date}</td>";
