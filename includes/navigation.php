@@ -14,14 +14,15 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <?php
-                $query = "SELECT * FROM categories";
-                $fetchCats = mysqli_query($connection, $query);
+              $query = "SELECT * FROM categories";
+              $fetchCats = mysqli_query($connection, $query);
+              
+              while($row = mysqli_fetch_assoc($fetchCats)) {
+                $cat_id = $row['id'];
+                $cat_title = $row['title'];
                 
-                while($row = mysqli_fetch_assoc($fetchCats)) {
-                  $cat_title = $row['title'];
-                  
-                  echo "<li><a href='#'>{$cat_title}</a></li>";
-                }
+                echo "<li><a href='category.php?category=$cat_id'>{$cat_title}</a></li>";
+              }
               ?>
               <li>
                 <a href="admin">Admin</a>

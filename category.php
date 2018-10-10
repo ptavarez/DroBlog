@@ -11,9 +11,14 @@
           <div class="col-md-8">
             
             <?php
-              $query = "SELECT * FROM posts";
+            if(isset($_GET['category'])) {
+              $cat_id = $_GET['category'];
+            }
+              $query = "SELECT * FROM posts WHERE category_id = $cat_id";
               
               $fetchPosts = mysqli_query($connection, $query);
+            
+              confirm($fetchPosts);
               
               while($row = mysqli_fetch_assoc($fetchPosts)) {
                 $post_id = $row['id'];
@@ -21,7 +26,7 @@
                 $post_author = $row['author'];
                 $post_date = $row['date'];
                 $post_image = $row['image'];
-                $post_content = substr($row['content'], 0, 150);
+                $post_content = substr($row['content'], 0, 230);
                 
                 ?>
                 <h1 class="page-header">
