@@ -1,12 +1,56 @@
 <!-- Comments Form -->
 <div class="well">
-    <h4>Leave a Comment:</h4>
-    <form role="form">
-        <div class="form-group">
-            <textarea class="form-control" rows="3"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+  <h4>Leave a Comment:</h4>
+  <?php
+    if(isset($_POST['create_comment'])) {
+      $author = $_POST['author'];
+      $email = $_POST['email'];
+      $content = $_POST['content'];
+      $status = $_POST['status'];
+      
+      $query = "INSERT INTO comments(post_id, author, email, content, status, date)
+                VALUES({$post_id}, '{$author}', '{$email}', '{$content}', '{$status}', now())";
+      
+      $create_comment = mysqli_query($connection,$query);
+      
+      confirm($create_comment);
+    }
+  ?>
+
+  <form class="" action="" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="author">Author</label>
+      <input class="form-control"
+             type="text"
+             name="author">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input class="form-control"
+             type="text"
+             name="email">
+    </div>
+    <div class="form-group">
+      <label for="status">Status</label>
+      <input class="form-control"
+             type="text"
+             name="status">
+    </div>
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea class="form-control"
+                name="content"
+                cols="30"
+                rows="10">
+      </textarea>
+    </div>
+    <div class="form-group">
+      <input class="btn btn-primary"
+             type="submit"
+             name="create_comment"
+             value="Submit">
+    </div>
+  </form>
 </div>
 
 <hr>
