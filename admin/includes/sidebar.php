@@ -30,7 +30,7 @@
             </ul>
         </li>
         <li>
-            <a href="#"><i class="fa fa-fw fa-comments-o"></i> Comments</a>
+            <a href="comments.php"><i class="fa fa-fw fa-comments-o"></i> Comments</a>
         </li>
         <li>
             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
