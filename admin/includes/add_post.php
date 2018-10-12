@@ -5,15 +5,14 @@
     $post_author = $_POST['author'];
     $post_content = $_POST['content'];
     $post_tags = $_POST['tags'];
-    $post_comment_count = 3;
     $post_status = $_POST['status'];
     $post_image = $_FILES['image']['name'];
     $post_image_temp = $_FILES['image']['tmp_name'];
       
     move_uploaded_file($post_image_temp, "../images/$post_image");
     
-    $query = "INSERT INTO posts(category_id, title, author, date, image, content, tags, comment_count, status)
-              VALUES({$post_cat_id}, '{$post_title}', '{$post_author}', now(), '{$post_image}', '{$post_content}', '{$post_tags}', '{$post_comment_count}', '{$post_status}')";
+    $query = "INSERT INTO posts(category_id, title, author, date, image, content, tags, status)
+              VALUES({$post_cat_id}, '{$post_title}', '{$post_author}', now(), '{$post_image}', '{$post_content}', '{$post_tags}', '{$post_status}')";
               
     $addPost = mysqli_query($connection, $query);
     

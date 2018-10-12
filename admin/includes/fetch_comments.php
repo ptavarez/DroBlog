@@ -63,6 +63,13 @@
     $query = "DELETE FROM comments WHERE id = {$id}";
     $delete_comment = mysqli_query($connection, $query);
     confirm($delete_comment);
+    
+    $query2 = "UPDATE posts SET comment_count = comment_count - 1
+               WHERE id = $comment_post_id";
+               
+    $update_comment_count = mysqli_query($connection, $query2);
+    confirm($update_comment_count);
+    
     header("Location: comments.php");
   }
 ?>
