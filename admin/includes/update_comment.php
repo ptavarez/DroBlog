@@ -16,14 +16,12 @@
   }
   
   if(isset($_POST['update_comment'])) {
-    $post_id = $_POST['post_id'];
     $author = $_POST['author'];
     $email = $_POST['email'];
     $content = $_POST['content'];
     $status = $_POST['status'];
     
     $query = "UPDATE comments SET
-                post_id = {$post_id},
                 author = '{$author}',
                 email = '{$email}',
                 content = '{$content}',
@@ -40,28 +38,10 @@
 
 <form class="" action="" method="post" enctype="multipart/form-data">
   <div class="form-group">
-    <label for="post_id">Post: </label>
-    <select name="post_id">
-      <?php
-        $query = "SELECT * FROM posts";
-        $fetchPost = mysqli_query($connection, $query);
-        
-        confirm($fetchPost);
-        
-        while($row = mysqli_fetch_assoc($fetchPost)) {
-          $post_id = $row['id'];
-          $post_title = $row['title'];
-          
-          echo "<option value='{$post_id}'>{$post_title}</option>";
-        }
-      ?>
-    </select>
-  </div>
-  <div class="form-group">
     <label for="status">Status: </label>
     <select name="status">
-      <option value='approved'>approved</option>
-      <option value='unapproved'>unapproved</option>
+      <option value='approved'>Approve</option>
+      <option value='unapproved'>Unapprove</option>
     </select>
   </div>
   <div class="form-group">
