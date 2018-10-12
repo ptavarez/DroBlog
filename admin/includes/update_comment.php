@@ -21,7 +21,6 @@
     $email = $_POST['email'];
     $content = $_POST['content'];
     $status = $_POST['status'];
-    $date = $_POST['date'];
     
     $query = "UPDATE comments SET
                 post_id = {$post_id},
@@ -59,6 +58,13 @@
     </select>
   </div>
   <div class="form-group">
+    <label for="status">Status: </label>
+    <select name="status">
+      <option value='approved'>approved</option>
+      <option value='unapproved'>unapproved</option>
+    </select>
+  </div>
+  <div class="form-group">
     <label for="author">Author</label>
     <input class="form-control"
            type="text"
@@ -79,13 +85,6 @@
               cols="30"
               rows="10"><?php echo $comment_content; ?>
     </textarea>
-  </div>
-  <div class="form-group">
-    <label for="status">Status</label>
-    <input class="form-control"
-           type="text"
-           name="status"
-           value="<?php echo $comment_status; ?>">
   </div>
   <div class="form-group">
     <input class="btn btn-primary"

@@ -6,10 +6,9 @@
       $author = $_POST['author'];
       $email = $_POST['email'];
       $content = $_POST['content'];
-      $status = $_POST['status'];
       
       $query = "INSERT INTO comments(post_id, author, email, content, status, date)
-                VALUES({$post_id}, '{$author}', '{$email}', '{$content}', '{$status}', now())";
+                VALUES({$post_id}, '{$author}', '{$email}', '{$content}', 'approved', now())";
       
       $create_comment = mysqli_query($connection,$query);
       
@@ -31,17 +30,10 @@
              name="email">
     </div>
     <div class="form-group">
-      <label for="status">Status</label>
-      <input class="form-control"
-             type="text"
-             name="status">
-    </div>
-    <div class="form-group">
       <label for="content">Content</label>
       <textarea class="form-control"
                 name="content"
-                cols="30"
-                rows="10">
+                rows="5">
       </textarea>
     </div>
     <div class="form-group">

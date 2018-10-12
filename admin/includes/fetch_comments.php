@@ -35,8 +35,9 @@
     echo "<tr>";
       echo "<td>{$comment_id}</td>";
       while($row = mysqli_fetch_assoc($fetchPost)) {
+        $post_id = $row['id'];
         $post_title = $row['title'];
-        echo "<td>{$post_title}</td>";
+        echo "<td><a href='../post.php?p_id={$post_id}'>{$post_title}</a></td>";
       }
       echo "<td>{$comment_author}</td>";
       echo "<td>{$comment_email}</td>";
@@ -61,6 +62,7 @@
     
     $query = "DELETE FROM comments WHERE id = {$id}";
     $delete_comment = mysqli_query($connection, $query);
+    confirm($delete_comment);
     header("Location: comments.php");
   }
 ?>
