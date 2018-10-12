@@ -40,8 +40,7 @@
       <label for="content">Content</label>
       <textarea class="form-control"
                 name="content"
-                rows="5">
-      </textarea>
+                rows="5"></textarea>
     </div>
     <div class="form-group">
       <input class="btn btn-primary"

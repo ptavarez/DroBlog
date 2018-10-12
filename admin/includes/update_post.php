@@ -118,8 +118,7 @@
     <textarea class="form-control"
               name="content"
               cols="30"
-              rows="10"><?php echo $post_content; ?>
-    </textarea>
+              rows="10"><?php echo $post_content; ?></textarea>
   </div>
   <div class="form-group">
     <input class="btn btn-primary"

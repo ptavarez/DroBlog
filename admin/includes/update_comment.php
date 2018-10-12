@@ -63,8 +63,7 @@
     <textarea class="form-control"
               name="content"
               cols="30"
-              rows="10"><?php echo $comment_content; ?>
-    </textarea>
+              rows="10"><?php echo $comment_content; ?></textarea>
   </div>
   <div class="form-group">
     <input class="btn btn-primary"

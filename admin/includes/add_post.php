@@ -82,8 +82,7 @@
               name="content"
               cols="30"
               rows="10"
-              value="">
-    </textarea>
+              value=""></textarea>
   </div>
   <div class="form-group">
     <input class="btn btn-primary"
