@@ -9,10 +9,17 @@
       
       $query = "INSERT INTO comments(post_id, author, email, content, status, date)
                 VALUES({$post_id}, '{$author}', '{$email}', '{$content}', 'approved', now())";
-      
+                
       $create_comment = mysqli_query($connection,$query);
-      
       confirm($create_comment);
+      
+      $query2 = "UPDATE posts SET comment_count = comment_count + 1
+                 WHERE id = $post_id";
+                 
+      $update_comment_count = mysqli_query($connection, $query2);
+      confirm($update_comment_count);
+      
+      header("Location: post.php?p_id=$post_id");
     }
   ?>
 
@@ -50,20 +57,38 @@
 <!-- Posted Comments -->
 
 <!-- Comment -->
+<?php
+  $query2 = "SELECT * FROM comments WHERE post_id = {$post_id}
+             AND status = 'approved'
+             ORDER BY id ASC";
+             
+  $fetch_comments = mysqli_query($connection, $query2);
+  confirm($fetch_comments);
+  
+  while($row = mysqli_fetch_array($fetch_comments)) {
+    $date = $row['date'];
+    $content = $row['content'];
+    $author = $row['author'];
+?>
+    
 <div class="media">
     <a class="pull-left" href="#">
         <img class="media-object" src="http://placehold.it/64x64" alt="">
     </a>
     <div class="media-body">
-        <h4 class="media-heading">Start Bootstrap
-            <small>August 25, 2014 at 9:30 PM</small>
+        <h4 class="media-heading"><?php echo $author ?>
+            <small><?php echo $date ?></small>
         </h4>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+        <?php echo $content ?>
     </div>
 </div>
 
+<?php
+  }
+?>
+
 <!-- Comment -->
-<div class="media">
+<!-- <div class="media">
     <a class="pull-left" href="#">
         <img class="media-object" src="http://placehold.it/64x64" alt="">
     </a>
@@ -72,7 +97,7 @@
             <small>August 25, 2014 at 9:30 PM</small>
         </h4>
         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-        <!-- Nested Comment -->
+        <! Nested Comment
         <div class="media">
             <a class="pull-left" href="#">
                 <img class="media-object" src="http://placehold.it/64x64" alt="">
@@ -84,6 +109,6 @@
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
             </div>
         </div>
-        <!-- End Nested Comment -->
+        <! End Nested Comment
     </div>
-</div>
+</div> -->
