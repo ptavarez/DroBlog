@@ -2,12 +2,12 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Username</th>
       <th>First Name</th>
       <th>Last Name</th>
+      <th>Role</th>
+      <th>Username</th>
       <th>Email</th>
       <th>Image</th>
-      <th>Role</th>
       <th>Update</th>
       <th>Delete</th>
     </tr>
@@ -30,12 +30,13 @@
 
     echo "<tr>";
       echo "<td>{$user_id}</td>";
-      echo "<td>{$user_username}</td>";
       echo "<td>{$user_firstname}</td>";
       echo "<td>{$user_lastname}</td>";
+      echo "<td>{$user_role}</td>";
+      echo "<td>{$user_username}</td>";
       echo "<td>{$user_email}</td>";
       echo "<td>{$user_image}</td>";
-      echo "<td>{$user_role}</td>";
+      
       echo "<td class='text-center'>
               <a href='users.php?source=update_user&u_id={$user_id}' class='btn btn-warning'></a>
             </td>";

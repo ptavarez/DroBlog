@@ -61,8 +61,14 @@
   <div class="form-group">
     <label for="status">Role: </label>
     <select class="" name="role">
-      <option value="subscriber">Subscriber</option>
-      <option value="admin">Admin</option>
+      <option value="<?php echo $user_role; ?>"><?php echo $user_role; ?></option>
+      <?php
+        if($user_role === 'admin') {
+          echo "<option value='subscriber'>subscriber</option>";
+        } else {
+          echo "<option value='admin'>admin</option>";
+        }
+      ?>
     </select>
   </div>
   <div class="form-group">
