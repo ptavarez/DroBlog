@@ -1,7 +1,14 @@
 <?php
-  ob_start();
   include "../includes/db.php";
   include "functions.php";
+  ob_start();
+  session_start();
+  
+  if(isset($_SESSION['role'])) {
+    if($_SESSION['role'] !== 'admin') {
+      header("Location: ../index.php");
+    }
+  }
 ?>
 
 <!DOCTYPE html>
@@ -23,8 +30,9 @@
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/e839aff95a.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
