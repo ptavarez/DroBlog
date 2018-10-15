@@ -37,9 +37,6 @@
                 echo "<li><a href='category.php?category=$cat_id'>{$cat_title}</a></li>";
               }
               ?>
-              <li>
-                <a href="admin">Admin</a>
-              </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
