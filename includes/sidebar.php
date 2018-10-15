@@ -1,7 +1,7 @@
 <div class="col-md-4">
     <!-- Login -->
     <div class="well">
-        <h4>Login</h4>
+        <h4>Admin Login</h4>
         <form class="" action="includes/login.php" method="post">
           <div class="form-group">
               <input name="username" type="text" class="form-control" placeholder="Username">

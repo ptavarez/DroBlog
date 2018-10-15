@@ -26,9 +26,7 @@
    $user_role = $row['role'];
  }
  
- if($username !== $user_username && $password !== $user_password) {
-   header("Location: ../index.php");
- } else if($username === $user_username && $password === $user_password) {
+ if($username === $user_username && $password === $user_password) {
    $_SESSION['id'] = $user_id;
    $_SESSION['username'] = $user_username;
    $_SESSION['firstname'] = $user_firstname;
@@ -36,6 +34,7 @@
    $_SESSION['role'] = $user_role;
    
    header("Location: ../admin");
+   
  } else {
    header("Location: ../index.php");
  }
