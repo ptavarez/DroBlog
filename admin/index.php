@@ -111,11 +111,11 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                       <?php
-                                        $query = "SELECT * FROM posts";
-                                        $fetch_posts = mysqli_query($connection,$query);
-                                        $posts_count = mysqli_num_rows($fetch_posts);
+                                        $query = "SELECT * FROM comments";
+                                        $fetch_comments = mysqli_query($connection,$query);
+                                        $comments_count = mysqli_num_rows($fetch_comments);
                                       ?>
-                                     <div class='huge'><?php echo $posts_count; ?></div>
+                                     <div class='huge'><?php echo $comments_count; ?></div>
                                       <div>Comments</div>
                                     </div>
                                 </div>
@@ -130,7 +130,47 @@
                         </div>
                     </div>
                 </div>
+                <!-- /.row -->
+                <?php
+                  $query = "SELECT * FROM users WHERE role = 'subscriber'";
+                  $fetch_subscribers = mysqli_query($connection,$query);
+                  $subscribers_count = mysqli_num_rows($fetch_subscribers);
+                ?>
+                
+                <div class="row">
+                  <script type="text/javascript">
+                    google.charts.load('current', {'packages':['bar']});
+                    google.charts.setOnLoadCallback(drawChart);
 
+                    function drawChart() {
+                      var data = google.visualization.arrayToDataTable([
+                        ['Data', 'Count'],
+                        <?php
+                          $text = ['Users', 'Subscribers', 'Active Posts', 'Categories', 'Comments'];
+                          $count = [$users_count, $subscribers_count, $posts_count, $categories_count, $comments_count];
+                          
+                          for($i = 0; $i < count($text); $i++) {
+                            echo "['{$text[$i]}', {$count[$i]}],";
+                          }
+                        ?>
+                      ]);
+
+                      var options = {
+                        chart: {
+                          title: '',
+                          subtitle: '',
+                        }
+                      };
+
+                      var chart = new google.charts.Bar(document.getElementById('columnchart'));
+
+                      chart.draw(data, google.charts.Bar.convertOptions(options));
+                    }
+                  </script>
+                  <div id="columnchart" style="width: 'auto'; height: 500px;"></div>
+                </div>
+                <!-- /.row -->
+                
             </div>
             <!-- /.container-fluid -->
 
