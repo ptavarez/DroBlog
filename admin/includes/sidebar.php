@@ -27,7 +27,7 @@
             </ul>
         </li>
         <li>
-            <a href="categories.php"><i class="fa fa-fw fa-tags"></i> Categories</a>
+            <a href="categories.php"><i class="fa fa-fw fa-list"></i> Categories</a>
         </li>
         <li>
             <a href="comments.php"><i class="fa fa-fw fa-comments-o"></i> Comments</a>
