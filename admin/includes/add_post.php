@@ -42,6 +42,13 @@
     </select>
   </div>
   <div class="form-group">
+    <label for="category_id">Status: </label>
+    <select name="status">
+        <option value='draft'>Draft</option>
+        <option value='final'>Final</option>
+    </select>
+  </div>
+  <div class="form-group">
     <label for="title">Title</label>
     <input class="form-control"
            type="text"
@@ -67,13 +74,6 @@
     <input class="form-control"
            type="text"
            name="tags"
-           value="">
-  </div>
-  <div class="form-group">
-    <label for="status">Status</label>
-    <input class="form-control"
-           type="text"
-           name="status"
            value="">
   </div>
   <div class="form-group">

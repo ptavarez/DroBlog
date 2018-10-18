@@ -78,6 +78,19 @@
     </select>
   </div>
   <div class="form-group">
+    <label for="category_id">Status: </label>
+    <select class="" name="status">
+      <option value="<?php echo $post_status; ?>"><?php echo $post_status; ?></option>
+      <?php
+        if($post_status === 'draft') {
+          echo "<option value='final'>final</option>";
+        } else {
+          echo "<option value='draft'>draft</option>";
+        }
+      ?>
+    </select>
+  </div>
+  <div class="form-group">
     <label for="title">Title</label>
     <input class="form-control"
            type="text"
@@ -105,13 +118,6 @@
            type="text"
            name="tags"
            value="<?php echo $post_tags; ?>">
-  </div>
-  <div class="form-group">
-    <label for="status">Status</label>
-    <input class="form-control"
-           type="text"
-           name="status"
-           value="<?php echo $post_status; ?>">
   </div>
   <div class="form-group">
     <label for="content">Content</label>
