@@ -37,6 +37,25 @@
           echo "<li><a href='category.php?category=$cat_id'>{$cat_title}</a></li>";
         }
         ?>
+        <?php
+          if(isset($_SESSION['role'])) {
+        ?>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $_SESSION['username']; ?> <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li>
+                  <a href="admin/index.php"><i class="glyphicon glyphicon-dashboard"></i> Admin</a>
+              </li>
+              <li>
+                  <a href="admin/profile.php"><i class="glyphicon glyphicon-user"></i> Profile</a>
+              </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="./includes/logout.php"><i class="glyphicon glyphicon-off"></i> Log Out</a>
+                </li>
+            </ul>
+        </li>
+      <?php } ?>
       </ul>
   </div>
   <!-- /.navbar-collapse -->

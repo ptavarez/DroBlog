@@ -1,4 +1,7 @@
 <div class="col-md-4">
+  <?php
+  if (!isset($_SESSION['username'])) {
+    ?>
     <!-- Login -->
     <div class="well">
         <h4>Admin Login</h4>
@@ -15,7 +18,7 @@
         </form> <!-- /search form -->
         <!-- /.input-group -->
     </div>
-
+  <?php } ?>
     <!-- Blog Categories Well -->
     <div class="well">
         <h4>Blog Categories</h4>

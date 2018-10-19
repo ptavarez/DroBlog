@@ -121,7 +121,8 @@
   </div>
   <div class="form-group">
     <label for="content">Content</label>
-    <textarea class="form-control"
+    <textarea id="body"
+              class="form-control"
               name="content"
               cols="30"
               rows="10"><?php echo $post_content; ?></textarea>
