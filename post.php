@@ -26,11 +26,6 @@
                 $post_content = $row['content'];
                 
                 ?>
-                <h1 class="page-header">
-                    Page Heading
-                    <small>Secondary Text</small>
-                </h1>
-
                 <!-- Blog Posts -->
                 <h2>
                     <a href="#"><?php echo $post_title;?></a>

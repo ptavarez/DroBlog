@@ -9,6 +9,10 @@
 
           <!-- Blog Entries Column -->
           <div class="col-md-8">
+            <h1 class="page-header">
+                Page Heading
+                <small>Secondary Text</small>
+            </h1>
             
             <?php
               $query = "SELECT * FROM posts";
@@ -24,10 +28,6 @@
                 $post_content = substr($row['content'], 0, 150);
                 
                 ?>
-                <h1 class="page-header">
-                    Page Heading
-                    <small>Secondary Text</small>
-                </h1>
 
                 <!-- Blog Posts -->
                 <h2>
