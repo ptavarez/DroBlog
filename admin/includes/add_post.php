@@ -45,7 +45,7 @@
     <label for="category_id">Status: </label>
     <select name="status">
         <option value='draft'>Draft</option>
-        <option value='final'>Final</option>
+        <option value='published'>Publish</option>
     </select>
   </div>
   <div class="form-group">

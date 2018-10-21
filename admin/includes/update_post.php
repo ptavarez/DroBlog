@@ -83,7 +83,7 @@
       <option value="<?php echo $post_status; ?>"><?php echo $post_status; ?></option>
       <?php
         if($post_status === 'draft') {
-          echo "<option value='final'>final</option>";
+          echo "<option value='published'>published</option>";
         } else {
           echo "<option value='draft'>draft</option>";
         }
