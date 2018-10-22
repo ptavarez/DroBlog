@@ -4,7 +4,7 @@
     ?>
     <!-- Login -->
     <div class="well">
-        <h4>Admin Login</h4>
+        <h4>Login</h4>
         <form class="" action="includes/login.php" method="post">
           <div class="form-group">
               <input name="username" type="text" class="form-control" placeholder="Username">
@@ -15,8 +15,13 @@
                 <button class="btn btn-primary" type="submit" name="login">Submit</button>
               </span>
           </div>
+          <div class="form-group">
+            <label for=""></label>
+            <p class="text-center">Not a member? <a href="registration.php">Sign Up!</a></p>
+          </div>
         </form> <!-- /search form -->
         <!-- /.input-group -->
+  
     </div>
   <?php } ?>
     <!-- Blog Categories Well -->
