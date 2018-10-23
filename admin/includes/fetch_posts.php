@@ -102,7 +102,7 @@
                   <a href='posts.php?source=update_post&p_id={$post_id}' class='btn btn-warning'></a>
                 </td>";
           echo  "<td class='text-center'>
-                  <a href='posts.php?delete={$post_id}' class='btn btn-danger'></a>
+                  <a onClick=\"javascript: return confirm('Are you sure you want to delete?') \" href='posts.php?delete={$post_id}' class='btn btn-danger'></a>
                 </td>";
         echo "</tr>";
       }

@@ -43,7 +43,7 @@
                 <a class='btn btn-warning' href='categories.php?update={$cat_id}'></a>
               </td>";
         echo  "<td class='text-center'>
-                <a class='btn btn-danger' href='categories.php?delete={$cat_id}'></a>
+                <a onClick=\"javascript: return confirm('Are you sure you want to delete?') \" class='btn btn-danger' href='categories.php?delete={$cat_id}'></a>
               </td>";
       echo "</tr>";
     }

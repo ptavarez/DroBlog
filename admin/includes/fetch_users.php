@@ -42,7 +42,7 @@
                 <a href='users.php?source=update_user&u_id={$user_id}' class='btn btn-warning'></a>
               </td>";
         echo  "<td class='text-center'>
-                <a href='users.php?delete={$user_id}' class='btn btn-danger'></a>
+                <a onClick=\"javascript: return confirm('Are you sure you want to delete?') \" href='users.php?delete={$user_id}' class='btn btn-danger'></a>
               </td>";
       echo "</tr>";
     }
