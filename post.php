@@ -13,7 +13,13 @@
             <?php
             if(isset($_GET['p_id'])) {
               $post_id = $_GET['p_id'];
-            }
+              
+              $views_query = "UPDATE posts SET
+                                views = views + 1
+                              WHERE id = $post_id";
+              $viewsUp = mysqli_query($connection, $views_query);
+              confirm($viewsUp);
+            
               $query = "SELECT * FROM posts WHERE id = $post_id";
               
               $fetchPosts = mysqli_query($connection, $query);
@@ -40,7 +46,12 @@
                 <p><?php echo $post_content;?></p>
 
                 <hr>
-            <?php } ?>
+            <?php
+                }
+              } else {
+                header("Location: index.php");
+              }
+            ?>
             <?php include "includes/comments.php";?>
           </div>
 

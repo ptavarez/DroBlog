@@ -38,6 +38,13 @@
             confirm($bulk_add);
           }
         break;
+        case 'reset':
+          $query = "UPDATE posts SET
+                      views = 0
+                    WHERE id = $box_id";
+          $reset_views = mysqli_query($connection, $query);
+          confirm($reset_views);
+        break;
         case 'delete':
           $query = "DELETE FROM posts WHERE id = {$box_id}";
           $bulk_delete = mysqli_query($connection, $query);
@@ -57,6 +64,7 @@
           <option value="published">Publish</option>
           <option value="draft">Draft</option>
           <option value="clone">Clone</option>
+          <option value="reset">Reset Views</option>
           <option value="delete">Delete</option>
         </select>
       </div>
@@ -71,6 +79,7 @@
           <th>Category</th>
           <th>Title</th>
           <th>Author</th>
+          <th>Views</th>
           <th>Date</th>
           <th>Image</th>
           <th>Content</th>
@@ -92,9 +101,10 @@
         $post_cat_id = $row['category_id'];
         $post_title = $row['title'];
         $post_author = $row['author'];
+        $post_views = $row['views'];
         $post_date = $row['date'];
         $post_image = $row['image'];
-        $post_content = $row['content'];
+        $post_content = substr($row['content'], 0, 50);
         $post_tags = $row['tags'];
         $post_comments = $row['comment_count'];
         $post_status = $row['status'];
@@ -113,9 +123,10 @@
           }
           echo "<td><a href='../post.php?p_id={$post_id}'>{$post_title}</a></td>";
           echo "<td>{$post_author}</td>";
+          echo "<td>{$post_views}</td>";
           echo "<td>{$post_date}</td>";
           echo "<td><img width='100' src='../images/$post_image' alt='$post_image'></td>";
-          echo "<td>{$post_content}</td>";
+          echo "<td>{$post_content} ...</td>";
           echo "<td>{$post_tags}</td>";
           echo "<td>{$post_comments}</td>";
           echo "<td>{$post_status}</td>";
