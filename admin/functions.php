@@ -59,4 +59,36 @@
       header("Location: categories.php");
     }
   }
+  
+  function online_users() {
+    if(isset($_GET['onlineusers'])) {
+      global $connection;
+      if(!$connection) {
+        session_start();
+        include('../includes/db.php');
+        
+        $session = session_id();
+        $time = time();
+        $time_out_seconds = 60;
+        $time_out = $time - $time_out_seconds;
+        
+        $select_online_user = "SELECT * FROM online_users WHERE session = '$session'";
+        $send_select_online_user = mysqli_query($connection, $select_online_user);
+        confirm($send_select_online_user);
+        
+        $count = mysqli_num_rows($send_select_online_user);
+                
+        if($count == null) {
+          mysqli_query($connection, "INSERT INTO online_users(session, time) VALUES('$session', $time)");
+        } else {
+          mysqli_query($connection, "UPDATE online_users SET time = $time WHERE session = '$session'");
+        }
+        
+        $send_select_online_users = mysqli_query($connection, "SELECT * FROM online_users WHERE time > $time_out");
+        echo $count_online_users = mysqli_num_rows($send_select_online_users);
+      }
+    }
+  }
+  
+  online_users();
 ?>

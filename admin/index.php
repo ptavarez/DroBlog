@@ -14,7 +14,7 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Welcome to the Admin
-                            <small>Dashboard</small>
+                            <small><?php echo $_SESSION['username']?></small>
                         </h1>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                                   <div class="col-xs-3">
                                       <i class="fa fa-users fa-5x"></i>
                                   </div>
-                                  <div class="col-xs-9 text-right">
+                                  <div class="col-xs-4 text-right">
                                     <?php
                                       $query = "SELECT * FROM users";
                                       $fetch_users = mysqli_query($connection,$query);
@@ -36,6 +36,10 @@
                                     ?>
                                   <div class='huge'><?php echo $users_count; ?></div>
                                       <div>Users</div>
+                                  </div>
+                                  <div class="col-xs-5 text-right">
+                                    <div class='huge usersonline'></div>
+                                        <div>Online Users</div>
                                   </div>
                               </div>
                           </div>
