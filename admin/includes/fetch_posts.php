@@ -18,6 +18,26 @@
           $to_draft = mysqli_query($connection, $query);
           confirm($to_draft);
         break;
+        case 'clone':
+          $query = "SELECT * FROM posts WHERE id = {$box_id}";
+          $bulk_fetch = mysqli_query($connection, $query);
+          confirm($bulk_fetch);
+          
+          while($row = mysqli_fetch_array($bulk_fetch)) {
+            $cat_id = $row['category_id'];
+            $title = $row['title'];
+            $author = $row['author'];
+            $image = $row['image'];
+            $content = $row['content'];
+            $tags = $row['tags'];
+            $status = $row['status'];
+            
+            $query2 = "INSERT INTO posts(category_id, title, author, date, image, content, tags, status)
+                       VALUES({$cat_id}, '{$title}', '{$author}', now(), '{$image}', '{$content}', '{$tags}', '{$status}')";
+            $bulk_add = mysqli_query($connection, $query2);
+            confirm($bulk_add);
+          }
+        break;
         case 'delete':
           $query = "DELETE FROM posts WHERE id = {$box_id}";
           $bulk_delete = mysqli_query($connection, $query);
@@ -36,6 +56,7 @@
           <option selected disabled>Options</option>
           <option value="published">Publish</option>
           <option value="draft">Draft</option>
+          <option value="clone">Clone</option>
           <option value="delete">Delete</option>
         </select>
       </div>
@@ -63,7 +84,7 @@
       <tbody>
       </tbody>
       <?php
-      $query = "SELECT * FROM posts";
+      $query = "SELECT * FROM posts ORDER BY id DESC";
       $fetchPosts = mysqli_query($connection, $query);
       
       while($row = mysqli_fetch_assoc($fetchPosts)) {
