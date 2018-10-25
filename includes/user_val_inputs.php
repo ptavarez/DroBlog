@@ -44,19 +44,4 @@
       <input type='password' name='password' id='key' class='form-control' placeholder='Password' value='{$password}'>
     </div>";
   }
-
-  if(!$confirm) {
-    $confirm_input = "
-    <div class='form-group has-warning has-feedback'>
-      <label for='confirm' class='sr-only'>Confirm Password</label>
-      <input type='password' name='confirm' id='confirm' class='form-control' placeholder='Confirm Password'>
-      <span  style='font-color:red;' class='help-block'>Confirmation is required.</span>
-    </div>";
-  } else {
-    $confirm_input = "
-    <div class='form-group'>
-      <label for='confirm' class='sr-only'>Confirm Password</label>
-      <input type='password' name='confirm' id='confirm' class='form-control' placeholder='Confirm Password' value='{$confirm}'>
-    </div>";
-  }
 ?>

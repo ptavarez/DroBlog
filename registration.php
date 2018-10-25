@@ -34,36 +34,22 @@
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $confirm = $_POST['confirm'];
     
     $username = mysqli_real_escape_string($connection, $username);
     $email = mysqli_real_escape_string($connection, $email);
     $password = mysqli_real_escape_string($connection, $password);
     
+    $password = password_hash($password, PASSWORD_BCRYPT, array('cost' => 12)).'<br>';
+    
     include "includes/user_val_inputs.php";
     
-    if($username && $email && $password && $confirm) {
-      if($password !== $confirm ) {
-        $password_input = "
-        <div class='form-group has-warning has-feedback'>
-          <label for='password' class='sr-only'>Password</label>
-          <input type='password' name='password' id='key' class='form-control' placeholder='Password'>
-          <span id=' class='help-block'>Passwords must match.</span>
-        </div>";
-        $confirm_input = "
-        <div class='form-group has-warning has-feedback'>
-          <label for='confirm' class='sr-only'>Confirm Password</label>
-          <input type='password' name='confirm' id='confirm' class='form-control' placeholder='Confirm Password'>
-          <span id=' class='help-block'>Passwords must match.</span>
-        </div>";
-      } else {
-        $query = "INSERT INTO users(username, email, password, role)
-                  VALUES ('{$username}', '{$email}', '{$password}', 'subscriber')";
-        $add_user = mysqli_query($connection, $query);
-        confirm($add_user);
-        
-        // header("Location: index.php");
-      }
+  if($username && $email && $password) {
+      $query = "INSERT INTO users(username, email, password, role)
+                VALUES ('{$username}', '{$email}', '{$password}', 'subscriber')";
+      $add_user = mysqli_query($connection, $query);
+      confirm($add_user);
+      
+      header("Location: index.php");
     }
   }
 ?>
@@ -83,7 +69,6 @@
                             echo $username_input;
                             echo $email_input;
                             echo $password_input;
-                            echo $confirm_input;
                           ?>
                           <input type="submit" name="submit" id="btn-login" class="btn btn-primary btn-lg btn-block" value="Submit">
                       </form>
