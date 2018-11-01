@@ -14,7 +14,6 @@
       $post_image = $row['image'];
       $post_content = $row['content'];
       $post_tags = $row['tags'];
-      $post_comments = $row['comment_count'];
       $post_status = $row['status'];
     }
   }

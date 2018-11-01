@@ -34,6 +34,7 @@
               confirm($postConnect);
               
               $post_count = mysqli_num_rows($postConnect);
+              $post_count2 = mysqli_num_rows($postConnect);
               
               $post_count = ceil($post_count / $per_page);
               
@@ -81,6 +82,10 @@
       <!-- /.row -->
 
       <hr>
-      <?php include "includes/pagination.php";?>
+      <?php
+        if($post_count2 >= $per_page) {
+          include "includes/pagination.php";
+        }
+      ?>
       
 <?php include "includes/footer.php";?>

@@ -106,7 +106,6 @@
         $post_image = $row['image'];
         $post_content = substr($row['content'], 0, 50);
         $post_tags = $row['tags'];
-        $post_comments = $row['comment_count'];
         $post_status = $row['status'];
         
         $query2 = "SELECT * FROM categories WHERE id = $post_cat_id";
@@ -128,7 +127,13 @@
           echo "<td><img width='100' src='../images/$post_image' alt='$post_image'></td>";
           echo "<td>{$post_content} ...</td>";
           echo "<td>{$post_tags}</td>";
-          echo "<td>{$post_comments}</td>";
+          
+          $query3 = "SELECT * FROM comments WHERE post_id = $post_id";
+          $fetchComments = mysqli_query($connection, $query3);
+          confirm($fetchComments);
+          $comment_count = mysqli_num_rows($fetchComments);
+          
+          echo "<td>{$comment_count}</td>";
           echo "<td>{$post_status}</td>";
           echo "<td class='text-center'>
                   <a href='posts.php?source=update_post&p_id={$post_id}' class='btn btn-warning'></a>

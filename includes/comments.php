@@ -13,13 +13,7 @@
                   
         $create_comment = mysqli_query($connection,$query);
         confirm($create_comment);
-        
-        $query2 = "UPDATE posts SET comment_count = comment_count + 1
-                   WHERE id = $post_id";
-                   
-        $update_comment_count = mysqli_query($connection, $query2);
-        confirm($update_comment_count);
-        
+                
         header("Location: post.php?p_id=$post_id");
       } else {
         echo "<script>alert('Fields cannot be empty')</script>";
