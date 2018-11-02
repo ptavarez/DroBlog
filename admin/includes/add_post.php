@@ -60,7 +60,7 @@
     <input class="form-control"
            type="text"
            name="author"
-           value="">
+           value="<?php echo $_SESSION['username']; ?>">
   </div>
   <div class="form-group">
     <label for="image">Image</label>
