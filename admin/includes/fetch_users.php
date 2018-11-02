@@ -53,12 +53,18 @@
 
 <?php
   if(isset($_GET['delete'])) {
-    $id = $_GET['delete'];
-    
-    $query = "DELETE FROM users WHERE id = {$id}";
-    $delete_user = mysqli_query($connection, $query);
-    confirm($delete_user);
-    
-    header("Location: users.php");
+    if(isset($_SESSION['role'])) {
+      if($_SESSION['role'] === 'admin') {
+        $id = escape($_GET['delete']);
+        
+        $query = "DELETE FROM users WHERE id = {$id}";
+        $delete_user = mysqli_query($connection, $query);
+        confirm($delete_user);
+        
+        header("Location: users.php");
+      } else {
+        echo "<p class='text-center'>Only an admin can destroy a user!</p>";
+      }
+    }
   }
 ?>

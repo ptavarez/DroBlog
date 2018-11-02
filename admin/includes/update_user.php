@@ -15,7 +15,6 @@
       $user_email = $row['email'];
       $user_image = $row['image'];
       $user_role = $row['role'];
-      $user_randSalt = $row['randSalt'];
     }
   }
   
